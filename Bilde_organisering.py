@@ -29,12 +29,12 @@ def rename(source, filename, destination):
     i = 1
     
     file_destination = os.path.join(destination,filename)
-    filename_info = filename.split('.')
+    first, last = filename.split('.')
     
     while os.path.isfile(file_destination):
-        filename = filename_info[0] + '(' + str(i) + ').' + filename_info[1]
-        i = i + 1
+        filename = first + '({}).'.format(i) + last                 
         file_destination = os.path.join(destination,filename)
+        i += 1
         
     return file_destination
 
